@@ -3,7 +3,7 @@ import { sequelize } from "../instances/pg"
 
 export interface TodoInstance extends Model {
     id: number;
-    tittle: string;
+    title: string;
     done: boolean;
 }
 
@@ -19,7 +19,7 @@ export const Todo = sequelize.define<TodoInstance>('Todo', {
             if (value === undefined || value === null) {
                 return;
             }
-            return this.setDataValue("title", value.toLowerCase());
+            return this.setDataValue("title", value.toUpperCase());
         }
     },
     done: {
